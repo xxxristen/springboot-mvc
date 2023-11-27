@@ -14,4 +14,4 @@ This is my GitHub repository for my Java Spring Boot MVC app assessment.
 
 **3. What would make your experience with this assessment better?**
 
-   Perhaps to slow down the pace of class and also to share with us the .java classes with comments to explain what they do and when/how the exceptions are called.
+   Perhaps to slow down the pace of class and also to share with us the .java classes with comments to explain what they do and when/how the exceptions are called. And also if it's possible, to share with us a model answer to the project so we know how/where to improve.
