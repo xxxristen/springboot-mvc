@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.models.Task;
 import com.example.demo.repositories.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,9 @@ public class TaskService {
         return taskRepository.findAll();
     }
 
-    public Task findTaskById(Long id) {
-        return taskRepository.getById(id);
+    public Task findTaskById(Long id){
+        return taskRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public List<Task> findAllCompletedTask() {
@@ -39,7 +41,7 @@ public class TaskService {
 
     // In TaskService.java, taskService.deleteTask(id);. If really so, then use these:
     public void deleteTask(Long id) {
-        Task task =taskRepository.getById(id);
+        Task task = taskRepository.getById(id);
         taskRepository.delete(task);
     }
 

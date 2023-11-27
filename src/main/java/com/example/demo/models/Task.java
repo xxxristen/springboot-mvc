@@ -10,10 +10,12 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     // this is the primary key which will be auto generated
     private Long id;
-    @NotNull(message="Task cannot be blank")
+
+    @NotBlank(message="Task cannot be blank.")
     private String task;
-    @NotNull(message = "Completed must be either true or false")
-    private boolean completed;
+
+    @NotNull(message = "Completed cannot be null.")
+    private Boolean completed;
 
     // Default constructor
     public Task() {
@@ -21,7 +23,7 @@ public class Task {
     }
 
     // Parameterised constructor
-    public Task(String task, boolean completed) {
+    public Task(String task, Boolean completed) {
         this.task = task;
         this.completed = completed;
     }
@@ -39,10 +41,10 @@ public class Task {
     public void setTask(String task) {
         this.task = task;
     }
-    public boolean isCompleted() {
+    public Boolean isCompleted() {
         return completed;
     }
-    public void setCompleted(boolean completed) {
+    public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
 }
