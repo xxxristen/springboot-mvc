@@ -87,4 +87,14 @@ public class TaskController {
         // Because the method returns <Boolean> so keeping the return ResponseEntity.ok(true);
         return ResponseEntity.ok(true);}
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Task> getTaskByID(@Valid @PathVariable Long id) {
+        // If task cannot be found by id, throw ResourceNotFoundException
+        if (taskService.findTaskById(id)==null) {
+            throw new ResourceNotFoundException(id);
+        }
+        else {
+            return ResponseEntity.ok(taskService.findTaskById(id));
+        }
+    }
 }
